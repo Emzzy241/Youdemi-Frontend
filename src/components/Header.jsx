@@ -13,29 +13,30 @@ export default function Header() {
                         <ul class="s-header__nav">
                             <li class="current"><a href="index.html" title="">Home</a></li>
                             <li class="has-children">
-                                <a href="#0" title="">Categories</a>
+                                <a href="#0" title="">Courses</a>
                                 <ul class="sub-menu">
-                                    <li><a href="category.html">Design</a></li>
-                                    <li><a href="category.html">Lifestyle</a></li>
-                                    <li><a href="category.html">Photography</a></li>
-                                    <li><a href="category.html">Vacation</a></li>
-                                    <li><a href="category.html">Work</a></li>
-                                    <li><a href="category.html">Health</a></li>
-                                    <li><a href="category.html">Family</a></li>
-                                    <li><a href="category.html">Relationship</a></li>
+                                    <li><a href="#">Math</a></li>
+                                    <li><a href="#">Science</a></li>
+                                    <li><a href="#">Engineering</a></li>
+                                    <li><a href="#">Programming</a></li>
+                                    <li><a href="#">Finance</a></li>
+                                    <li><a href="#">Data Science</a></li>
+                                    <li><a href="#">Freelancing</a></li>
+                                    <li><a href="#">Cyber Security</a></li>
                                 </ul>
                             </li>
                             <li class="has-children">
-                                <a href="#0" title="">Blog</a>
+                                <a href="#0" title="">How Youdemi Works</a>
                                 <ul class="sub-menu">
-                                    <li><a href="single-video.html">Video Post</a></li>
-                                    <li><a href="single-audio.html">Audio Post</a></li>
-                                    <li><a href="single-standard.html">Standard Post</a></li>
+                                    <li><a href="#">Teach on Udemy</a></li>
+                                    <li><a href="#">Become a Student</a></li>
+                                    <li><a href="#">Become an Instructor</a></li>
                                 </ul>
                             </li>
-                            <li><a href="styles.html" title="">Styles</a></li>
-                            <li><a href="about.html" title="">About</a></li>
-                            <li><a href="contact.html" title="">Contact</a></li>
+                            <li><a href="#" title="">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                            {/* <li className="name_color"><a href="#" title="">Sign In</a></li> */}
+                            <button>Sign In</button>
                         </ul>
 
                         <a href="#0" title="Close Menu" class="s-header__overlay-close close-mobile-menu">Close</a>

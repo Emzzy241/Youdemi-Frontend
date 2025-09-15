@@ -1,4 +1,5 @@
 
+
 /* ===================================================================
  * # settings and variables
  *
@@ -604,6 +605,11 @@ a {
 a img {
     border: none;
 }
+
+.name_color {
+    color: hsla(222, 88%, 33%, 1);
+}
+
 
 /* ------------------------------------------------------------------- 
  * ## inputs
@@ -3417,6 +3423,10 @@ header {
     -webkit-box-align: center;
     align-items: center;
     position: relative;
+}
+
+.s-header__navigation button {
+    left: 0px;
 }
 
 .s-header__nav-wrap {

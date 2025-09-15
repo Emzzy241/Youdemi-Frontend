@@ -1,0 +1,13 @@
+
+# Index Page for Backend App
+GET https://youdemi-fullstack.onrender.com
+
+
+### Sign In Remotely
+POST https://youdemi-fullstack.onrender.com/api/v1/signin
+Content-Type: application/json
+
+{
+    "email": "dynasty.dev241@gmail.com",
+    "password": "Dynastyda2#"
+}
