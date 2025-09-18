@@ -4,12 +4,14 @@ import { useNavigate } from 'react-router-dom';
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('');
     const navigate = useNavigate(); // Initialize the hook for redirecting
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(''); // Clear any previous errors
+        setIsLoading(true);
 
         try {
             const response = await fetch('https://youdemi-fullstack.onrender.com/api/v1/signin', {
@@ -42,6 +44,8 @@ const LoginForm = () => {
         } catch (err) {
             console.error('Error during login:', err);
             setError(err.message);
+        } finally {
+            setIsLoading(false); // End Loading, regardless of success or failure
         }
     };
 
@@ -65,7 +69,9 @@ const LoginForm = () => {
             />
             <br />
             <br />
-            <button type="submit">Login</button>
+            <button type="submit" disabled={isLoading}>
+                {isLoading ? 'Logging In...' : 'Login'}
+            </button>
         </form>
     );
 };
