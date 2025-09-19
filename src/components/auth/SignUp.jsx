@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const SignUpForm = () => {
+    const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -44,29 +45,41 @@ const SignUpForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-            />
-            <br />
-            <br />
-            <br />
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-            />
-            <br />
-            <br />
-            <button type="submit" disabled={isLoading}>
-                {isLoading ? 'Signing In....' : 'Sign In'}
-            </button>
-        </form>
+        <>
+            <form onSubmit={handleSubmit}>
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+                <br />
+                <input
+                    type="name"
+                    value={email}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="Full Name"
+                />
+                <br />
+                <br />
+                <br />
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                />
+                <br />
+                <br />
+                <br />
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                />
+                <br />
+                <br />
+                <button type="submit" disabled={isLoading}>
+                    {isLoading ? 'Signing Up....' : 'Sign Up'}
+                </button>
+            </form>
+        </>
     )
 }
 

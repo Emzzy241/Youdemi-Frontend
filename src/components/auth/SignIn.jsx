@@ -77,27 +77,3 @@ const SignInForm = () => {
 };
 
 export default SignInForm;
-
-
-
-
-// export default function Login() {
-//     return (
-//         <div>
-//             <h2>Welcome to the Login Page</h2>
-//             <br />
-//             <br />
-//             <br />
-//             <form action="login" method="post">
-//                 <input type="email" name="email" id="" placeholder="Enter your email" />
-//                 <br />
-//                 <br />
-//                 <br />
-//                 <input type="password" name="password" id="" placeholder="Enter your password" />
-//                 <br />
-//                 <br />
-//                 <button type="submit">Submit</button>
-//             </form>
-//         </div>
-//     )
-// }

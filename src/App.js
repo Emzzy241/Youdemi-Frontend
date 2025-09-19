@@ -3,7 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import SignIn from "./components/auth/SignIn"
+import SignUp from "./components/auth/SignUp";
 import Dashboard from './components/Dashboard';
+// import UserVerifi 
 import "./App.css"
 // import Contact from './components/Contact'; // Your Contact component
 
@@ -20,9 +22,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/auth/signin" element={<SignIn />} />
+        <Route path="/auth/signup" element={<SignUp />} />
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <Dashboard />
+
           </ProtectedRoute>
         } />
         {/* <Route path="/contact" element={<Contact />} /> */}

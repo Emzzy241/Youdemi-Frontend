@@ -13,6 +13,9 @@ export default function Home () {
             <a href="/auth/signIn" >Click to go to Sign In Page</a>
             <br />
             <br />
+            <a href="/auth/signUp" >Click to go to Sign Up Page</a>
+            <br />
+            <br />
             <a href="/dashboard" >Click to go to Dashboard Page</a>
         </div>
     )
