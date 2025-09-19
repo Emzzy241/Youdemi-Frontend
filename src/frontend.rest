@@ -11,3 +11,13 @@ Content-Type: application/json
     "email": "dynasty.dev241@gmail.com",
     "password": "Dynastyda2#"
 }
+
+### Sign Up Remotely
+POST https://youdemi-fullstack.onrender.com/api/v1/signup 
+Content-Type: application/json
+
+{
+    "fullName": "Dynamite",
+    "email": "dynaman@gmail.com",
+    "password": "Dynaman2#"
+}
