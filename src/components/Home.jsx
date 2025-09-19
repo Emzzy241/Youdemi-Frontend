@@ -10,7 +10,7 @@ export default function Home () {
             <br />
             <br />
             <br />
-            <a href="/auth/login" >Click to go to Login Page</a>
+            <a href="/auth/signIn" >Click to go to Sign In Page</a>
             <br />
             <br />
             <a href="/dashboard" >Click to go to Dashboard Page</a>
