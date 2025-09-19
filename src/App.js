@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
-import Login from "./components/auth/Login"
+import SignIn from "./components/auth/SignIn"
 import Dashboard from './components/Dashboard';
 import "./App.css"
 // import Contact from './components/Contact'; // Your Contact component
@@ -10,7 +10,7 @@ import "./App.css"
 // A simple component to protect routes
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
-  return token ? children : <Navigate to="/auth/login" replace />;
+  return token ? children : <Navigate to="/auth/signIn" replace />;
 };
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/signin" element={<SignIn />} />
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <Dashboard />
