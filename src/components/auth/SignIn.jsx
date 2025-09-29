@@ -135,7 +135,7 @@ const SignInForm = () => {
                 <div className="text-center text-sm">
                     <p className="text-gray-600">
                         Don't have an account? 
-                        <Link to="/signup" className="font-medium ml-1 hover:underline transition duration-150" style={{ color: PRIMARY_BLUE }}>
+                        <Link to="/auth/signUp" className="font-medium ml-1 hover:underline transition duration-150" style={{ color: PRIMARY_BLUE }}>
                             Sign Up
                         </Link>
                     </p>
