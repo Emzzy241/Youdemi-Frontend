@@ -5,8 +5,7 @@ import About from './components/About';
 import SignIn from "./components/auth/SignIn"
 import SignUp from "./components/auth/SignUp";
 import Dashboard from './components/Dashboard';
-// import UserVerifi 
-import "./App.css"
+import "./App.css" 
 // import Contact from './components/Contact'; // Your Contact component
 
 // A simple component to protect routes
