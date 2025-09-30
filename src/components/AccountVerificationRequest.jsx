@@ -381,54 +381,78 @@ export const AccountVerificationRequest = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
+    // !!! IMPORTANT: REPLACE THIS WITH YOUR ACTUAL RENDER HOSTED ENDPOINT !!!
+    const VERIFICATION_API_ENDPOINT = 'https://your-hosted-backend.com/api/v1/users/sendVerificationCode'; 
+
+    /**
+     * Placeholder function to retrieve the stored JWT.
+     * YOU MUST REPLACE the return value with your actual token retrieval logic (e.g., from localStorage).
+     */
+    const getAuthToken = () => {
+        // Assume you store the token in localStorage after successful login/signup
+        let token = localStorage.getItem('token')
+        return token; 
+        
+        // Using a mock token that will fail if not replaced, to enforce replacement
+        // return "YOUR_ACTUAL_JWT_TOKEN"; 
+    };
+
     const handleSendCode = async (e) => {
         e.preventDefault();
         setMessage('');
         setIsSuccess(false);
         setIsLoading(true);
 
-        // Simple client-side validation
+        const token = getAuthToken();
+        
+        if (token === "YOUR_ACTUAL_JWT_TOKEN") {
+             setMessage("Error: Please replace 'YOUR_ACTUAL_JWT_TOKEN' in getAuthToken() with a real token retrieval method.");
+             setIsLoading(false);
+             return;
+        }
+
         if (!email || !email.includes('@')) {
             setMessage("Please enter a valid email address.");
             setIsLoading(false);
             return;
         }
 
-        // --- Mock API Call Simulation for sendVerificationCode ---
         try {
-            // Simulate network delay
-            await new Promise(resolve => setTimeout(resolve, 1500)); 
+            const response = await fetch(VERIFICATION_API_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Adding the Authorization header with the Bearer token
+                    'Authorization': `Bearer ${token}`, 
+                },
+                body: JSON.stringify({ email }),
+            });
 
-            // Mocking logic based on user's backend snippet and common scenarios
-            let mockStatus;
-            let mockMessage;
-
-            // Use specific mock emails for different server responses
-            if (email.toLowerCase() === 'verified@example.com') {
-                mockStatus = 400;
-                mockMessage = "User has already been verified";
-            } else if (email.toLowerCase() === 'notfound@example.com') {
-                mockStatus = 404;
-                mockMessage = "You do not have an account on our platform";
-            } else if (email.toLowerCase() === 'error@example.com') {
-                mockStatus = 400;
-                mockMessage = "Code sent failed";
-            } else {
-                // Success case: Code sent successfully
-                mockStatus = 200;
-                mockMessage = `Code to verify account has been sent to ${email}. Please check your inbox and proceed to the next step.`;
-            }
-
-            if (mockStatus === 200) {
-                setIsSuccess(true);
-            } else {
+            // Handle the 401 Unauthorized status specifically
+            if (response.status === 401) {
                 setIsSuccess(false);
+                setMessage("Unauthorized. Please ensure you are logged in and your authentication token is valid.");
+                setIsLoading(false);
+                return;
             }
-            setMessage(mockMessage);
+
+            // Parse the JSON body to get the success/error message
+            const data = await response.json();
+            
+            if (response.ok) {
+                // HTTP 200 - Success case
+                setIsSuccess(true);
+                setMessage(data.message + " You can now proceed to the next step.");
+            } else {
+                // HTTP 400 or 404 - Error cases from your backend
+                setIsSuccess(false);
+                setMessage(data.message || `Request failed with status ${response.status}.`);
+            }
 
         } catch (error) {
             console.error("Verification Request failed:", error);
-            setMessage("A network error occurred. Please try again later.");
+            // Network errors or issues with parsing JSON
+            setMessage("A network connectivity error occurred. Please check your connection and try again.");
             setIsSuccess(false);
         } finally {
             setIsLoading(false);
@@ -447,6 +471,7 @@ export const AccountVerificationRequest = () => {
                     </p>
                 </div>
                 
+                {/* Status Message Display */}
                 {message && (
                     <div 
                         className={`p-4 mb-6 rounded-lg font-medium transition duration-300 border ${isSuccess ? 'bg-green-100 text-green-700 border-green-300' : 'bg-red-100 text-red-700 border-red-300'}`}
@@ -455,7 +480,7 @@ export const AccountVerificationRequest = () => {
                         {message}
                         {isSuccess && (
                             <p className="mt-1 text-sm text-gray-600">
-                                (In the next step, you will be prompted to enter this code.)
+                                (You will be prompted to enter this code in the next step.)
                             </p>
                         )}
                     </div>
@@ -501,7 +526,8 @@ export const AccountVerificationRequest = () => {
                 </form>
                 
                 <div className="mt-8 text-center">
-                    <button onClick={() => setIsSuccess(true)} className="text-sm font-medium transition duration-150 underline" style={{ color: PRIMARY_BLUE }}>
+                    {/* This button will be fully functional once the next component is ready */}
+                    <button className="text-sm font-medium transition duration-150 underline" style={{ color: PRIMARY_BLUE }}>
                         Already have a code? Enter it here
                     </button>
                 </div>
