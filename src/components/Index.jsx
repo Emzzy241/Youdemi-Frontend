@@ -1,165 +1,169 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// Simulating lucide-react icons using inline SVG for single-file compatibility
+import NavBar from './Navbar';
+import Footer from './Footer';
+import {SearchIcon, MenuIcon, XIcon, ChevronDown, StarIcon, BookOpenIcon} from "./Icons"
+import { PRIMARY_BLUE, PRIMARY_HOVER_BLUE, BG_LIGHT_BLUE } from "./Colors"
+// // Simulating lucide-react icons using inline SVG for single-file compatibility
 
-// --- Constants (Matching the Sign In/Dashboard theme) ---
-const PRIMARY_BLUE = 'rgb(0, 86, 210)';
-const PRIMARY_HOVER_BLUE = 'rgb(0, 68, 168)';
-const BG_LIGHT_BLUE = 'rgb(240, 248, 255)';
+// // --- Constants (Matching the Sign In/Dashboard theme) ---
+// const PRIMARY_BLUE = 'rgb(0, 86, 210)';
+// const PRIMARY_HOVER_BLUE = 'rgb(0, 68, 168)';
+// const BG_LIGHT_BLUE = 'rgb(240, 248, 255)';
 
-const SearchIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-);
-const MenuIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-);
-const XIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-);
-const ChevronDown = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-);
-const StarIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="gold" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-);
-const BookOpenIcon = ({ color = 'currentColor' }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 19.5c0 .32 0 .52.1.72s.22.42.4.6.46.3.8.3H20c.34 0 .68-.1.8-.3s.3-.38.4-.6c.1-.2.1-.4.1-.72V5.5c0-.32 0-.52-.1-.72s-.22-.42-.4-.6-.46-.3-.8-.3H5c-.34 0-.68.1-.8.3s-.3.38-.4.6c-.1.2-.1.4-.1.72v14z"/><line x1="6" y1="12" x2="20" y2="12"/></svg>
-);
+// const SearchIcon = () => (
+//     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+// );
+// const MenuIcon = () => (
+//     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+// );
+// const XIcon = () => (
+//     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+// );
+// const ChevronDown = () => (
+//     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+// );
+// const StarIcon = () => (
+//     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="gold" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+// );
+// const BookOpenIcon = ({ color = 'currentColor' }) => (
+//     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 19.5c0 .32 0 .52.1.72s.22.42.4.6.46.3.8.3H20c.34 0 .68-.1.8-.3s.3-.38.4-.6c.1-.2.1-.4.1-.72V5.5c0-.32 0-.52-.1-.72s-.22-.42-.4-.6-.46-.3-.8-.3H5c-.34 0-.68.1-.8.3s-.3.38-.4.6c-.1.2-.1.4-.1.72v14z"/><line x1="6" y1="12" x2="20" y2="12"/></svg>
+// );
 
 
-// --- Navigation Sub-Menu Data ---
-const COURSES_MENU = [
-    { name: 'Programming & Tech', href: '#' },
-    { name: 'Data Science', href: '#' },
-    { name: 'Finance & Business', href: '#' },
-    { name: 'Arts & Humanities', href: '#' },
-];
-const HOW_IT_WORKS_MENU = [
-    { name: 'Become a Student', href: '#' },
-    { name: 'Teach on Youdemi', href: '#' },
-    { name: 'For Business', href: '#' },
-];
+// // --- Navigation Sub-Menu Data ---
+// const COURSES_MENU = [
+//     { name: 'Programming & Tech', href: '#' },
+//     { name: 'Data Science', href: '#' },
+//     { name: 'Finance & Business', href: '#' },
+//     { name: 'Arts & Humanities', href: '#' },
+// ];
+// const HOW_IT_WORKS_MENU = [
+//     { name: 'Become a Student', href: '#' },
+//     { name: 'Teach on Youdemi', href: '#' },
+//     { name: 'For Business', href: '#' },
+// ];
 
-// --- Dropdown Menu Component ---
-const DropdownMenu = ({ title, items }) => {
-    const [isOpen, setIsOpen] = useState(false);
+// // --- Dropdown Menu Component ---
+// const DropdownMenu = ({ title, items }) => {
+//     const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <div className="relative">
-            <button
-                className="flex items-center text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base"
-                onClick={() => setIsOpen(!isOpen)}
-                aria-expanded={isOpen}
-            >
-                {title}
-                <ChevronDown />
-            </button>
-            {isOpen && (
-                <div 
-                    className="absolute z-20 top-full mt-2 w-56 bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100"
-                    onMouseLeave={() => setIsOpen(false)}
-                >
-                    {items.map((item, index) => (
-                        <Link
-                            key={index}
-                            to={item.href}
-                            className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition duration-150"
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                </div>
-            )}
-        </div>
-    );
-};
+//     return (
+//         <div className="relative">
+//             <button
+//                 className="flex items-center text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base"
+//                 onClick={() => setIsOpen(!isOpen)}
+//                 aria-expanded={isOpen}
+//             >
+//                 {title}
+//                 <ChevronDown />
+//             </button>
+//             {isOpen && (
+//                 <div 
+//                     className="absolute z-20 top-full mt-2 w-56 bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100"
+//                     onMouseLeave={() => setIsOpen(false)}
+//                 >
+//                     {items.map((item, index) => (
+//                         <Link
+//                             key={index}
+//                             to={item.href}
+//                             className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition duration-150"
+//                         >
+//                             {item.name}
+//                         </Link>
+//                     ))}
+//                 </div>
+//             )}
+//         </div>
+//     );
+// };
 
-// --- Navbar Component ---
-const NavBar = () => {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+// // --- Navbar Component ---
+// const NavBar = () => {
+//     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    return (
-        <header className="sticky top-0 z-20 bg-white border-b border-gray-100 shadow-md">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+//     return (
+//         <header className="sticky top-0 z-20 bg-white border-b border-gray-100 shadow-md">
+//             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
                 
-                {/* Logo */}
-                <Link to="/" className="text-3xl font-extrabold tracking-tight" style={{ color: PRIMARY_BLUE }}>
-                    Youdemi
-                </Link>
+//                 {/* Logo */}
+//                 <Link to="/" className="text-3xl font-extrabold tracking-tight" style={{ color: PRIMARY_BLUE }}>
+//                     Youdemi
+//                 </Link>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden lg:flex items-center space-x-6">
-                    <DropdownMenu title="Courses" items={COURSES_MENU} />
-                    <DropdownMenu title="How Youdemi Works" items={HOW_IT_WORKS_MENU} />
-                    <Link to="/blog" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base">Blog</Link>
-                    <Link to="/contact" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base">Contact</Link>
-                </nav>
+//                 {/* Desktop Navigation */}
+//                 <nav className="hidden lg:flex items-center space-x-6">
+//                     <DropdownMenu title="Courses" items={COURSES_MENU} />
+//                     <DropdownMenu title="How Youdemi Works" items={HOW_IT_WORKS_MENU} />
+//                     <Link to="/blog" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base">Blog</Link>
+//                     <Link to="/contact" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base">Contact</Link>
+//                 </nav>
 
-                {/* Action Buttons & Search (Desktop) */}
-                <div className="hidden lg:flex items-center space-x-4">
-                    <button 
-                        className="p-2 rounded-full text-gray-700 hover:bg-gray-100 transition duration-150" 
-                        aria-label="Search"
-                    >
-                        <SearchIcon />
-                    </button>
-                    <Link 
-                        to="/auth/signIn"
-                        className="py-2 px-4 text-base font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition duration-150 text-gray-800"
-                    >
-                        Sign In
-                    </Link>
-                    <Link 
-                        to="/auth/signUp"
-                        className="py-2 px-4 text-base font-semibold rounded-lg text-white transition duration-150 shadow-md"
-                        style={{ backgroundColor: PRIMARY_BLUE }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = PRIMARY_HOVER_BLUE}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = PRIMARY_BLUE}
-                    >
-                        Sign Up
-                    </Link>
-                </div>
+//                 {/* Action Buttons & Search (Desktop) */}
+//                 <div className="hidden lg:flex items-center space-x-4">
+//                     <button 
+//                         className="p-2 rounded-full text-gray-700 hover:bg-gray-100 transition duration-150" 
+//                         aria-label="Search"
+//                     >
+//                         <SearchIcon />
+//                     </button>
+//                     <Link 
+//                         to="/auth/signIn"
+//                         className="py-2 px-4 text-base font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition duration-150 text-gray-800"
+//                     >
+//                         Sign In
+//                     </Link>
+//                     <Link 
+//                         to="/auth/signUp"
+//                         className="py-2 px-4 text-base font-semibold rounded-lg text-white transition duration-150 shadow-md"
+//                         style={{ backgroundColor: PRIMARY_BLUE }}
+//                         onMouseEnter={(e) => e.currentTarget.style.backgroundColor = PRIMARY_HOVER_BLUE}
+//                         onMouseLeave={(e) => e.currentTarget.style.backgroundColor = PRIMARY_BLUE}
+//                     >
+//                         Sign Up
+//                     </Link>
+//                 </div>
 
-                {/* Mobile Menu Button */}
-                <button
-                    className="lg:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-150"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label="Open Menu"
-                >
-                    {isMobileMenuOpen ? <XIcon /> : <MenuIcon />}
-                </button>
-            </div>
+//                 {/* Mobile Menu Button */}
+//                 <button
+//                     className="lg:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-150"
+//                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+//                     aria-label="Open Menu"
+//                 >
+//                     {isMobileMenuOpen ? <XIcon /> : <MenuIcon />}
+//                 </button>
+//             </div>
 
-            {/* Mobile Menu Content (Simplified) */}
-            {isMobileMenuOpen && (
-                <div className="lg:hidden bg-white px-4 pb-4 border-t border-gray-100 shadow-inner">
-                    <nav className="flex flex-col space-y-2 pt-4">
-                        <Link to="/" className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md">Home</Link>
-                        {COURSES_MENU.map((item, index) => (
-                            <Link key={index} to={item.href} className="block pl-4 py-2 text-gray-600 hover:bg-gray-50 rounded-md text-sm">{item.name}</Link>
-                        ))}
-                        <Link to="/contact" className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md">Contact</Link>
-                    </nav>
-                    <div className="flex flex-col space-y-3 mt-5">
-                        <Link 
-                            to="/auth/signIn"
-                            className="text-center py-2 px-4 font-semibold rounded-lg border border-gray-300 text-gray-800 hover:bg-gray-50"
-                        >
-                            Sign In
-                        </Link>
-                        <Link 
-                            to="/auth/signUp"
-                            className="text-center py-2 px-4 font-semibold rounded-lg text-white"
-                            style={{ backgroundColor: PRIMARY_BLUE }}
-                        >
-                            Sign Up
-                        </Link>
-                    </div>
-                </div>
-            )}
-        </header>
-    );
-};
+//             {/* Mobile Menu Content (Simplified) */}
+//             {isMobileMenuOpen && (
+//                 <div className="lg:hidden bg-white px-4 pb-4 border-t border-gray-100 shadow-inner">
+//                     <nav className="flex flex-col space-y-2 pt-4">
+//                         <Link to="/" className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md">Home</Link>
+//                         {COURSES_MENU.map((item, index) => (
+//                             <Link key={index} to={item.href} className="block pl-4 py-2 text-gray-600 hover:bg-gray-50 rounded-md text-sm">{item.name}</Link>
+//                         ))}
+//                         <Link to="/contact" className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md">Contact</Link>
+//                     </nav>
+//                     <div className="flex flex-col space-y-3 mt-5">
+//                         <Link 
+//                             to="/auth/signIn"
+//                             className="text-center py-2 px-4 font-semibold rounded-lg border border-gray-300 text-gray-800 hover:bg-gray-50"
+//                         >
+//                             Sign In
+//                         </Link>
+//                         <Link 
+//                             to="/auth/signUp"
+//                             className="text-center py-2 px-4 font-semibold rounded-lg text-white"
+//                             style={{ backgroundColor: PRIMARY_BLUE }}
+//                         >
+//                             Sign Up
+//                         </Link>
+//                     </div>
+//                 </div>
+//             )}
+//         </header>
+//     );
+// };
 
 // --- Hero Section Component (Updated with Image) ---
 const HeroSection = () => (
@@ -372,47 +376,49 @@ const TestimonialsSection = () => {
     );
 };
 
+<Footer />
 
-// --- Footer Component ---
-const Footer = () => (
-    <footer className="bg-gray-800 text-white py-10 mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-                <div>
-                    <h4 className="text-xl font-bold mb-4" style={{ color: PRIMARY_BLUE }}>Youdemi</h4>
-                    <p className="text-sm text-gray-400">Master the world's most in-demand skills.</p>
-                </div>
-                <div className="space-y-2">
-                    <h5 className="font-semibold mb-2">Explore</h5>
-                    <Link to="/courses" className="block text-sm text-gray-400 hover:text-white">All Courses</Link>
-                    <Link to="/certificates" className="block text-sm text-gray-400 hover:text-white">Certificates</Link>
-                    <Link to="/business" className="block text-sm text-gray-400 hover:text-white">Youdemi for Business</Link>
-                </div>
-                <div className="space-y-2">
-                    <h5 className="font-semibold mb-2">Company</h5>
-                    <Link to="/about" className="block text-sm text-gray-400 hover:text-white">About Us</Link>
-                    <Link to="/blog" className="block text-sm text-gray-400 hover:text-white">Blog</Link>
-                    <Link to="/contact" className="block text-sm text-gray-400 hover:text-white">Contact</Link>
-                </div>
-                <div className="space-y-2">
-                    <h5 className="font-semibold mb-2">Legal</h5>
-                    <Link to="/terms" className="block text-sm text-gray-400 hover:text-white">Terms of Service</Link>
-                    <Link to="/privacy" className="block text-sm text-gray-400 hover:text-white">Privacy Policy</Link>
-                </div>
-                <div className="flex justify-end col-span-2 md:col-span-1 md:justify-start">
-                    {/* Placeholder for social media icons */}
-                    <div className="flex space-x-4">
-                        <a href="#" className="text-gray-400 hover:text-white transition duration-150" aria-label="Facebook">FB</a>
-                        <a href="#" className="text-gray-400 hover:text-white transition duration-150" aria-label="Twitter">TW</a>
-                    </div>
-                </div>
-            </div>
-            <div className="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-400">
-                &copy; {new Date().getFullYear()} Youdemi, Inc. All rights reserved.
-            </div>
-        </div>
-    </footer>
-);
+
+// // --- Footer Component ---
+// const Footer = () => (
+//     <footer className="bg-gray-800 text-white py-10 mt-12">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//             <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+//                 <div>
+//                     <h4 className="text-xl font-bold mb-4" style={{ color: PRIMARY_BLUE }}>Youdemi</h4>
+//                     <p className="text-sm text-gray-400">Master the world's most in-demand skills.</p>
+//                 </div>
+//                 <div className="space-y-2">
+//                     <h5 className="font-semibold mb-2">Explore</h5>
+//                     <Link to="/courses" className="block text-sm text-gray-400 hover:text-white">All Courses</Link>
+//                     <Link to="/certificates" className="block text-sm text-gray-400 hover:text-white">Certificates</Link>
+//                     <Link to="/business" className="block text-sm text-gray-400 hover:text-white">Youdemi for Business</Link>
+//                 </div>
+//                 <div className="space-y-2">
+//                     <h5 className="font-semibold mb-2">Company</h5>
+//                     <Link to="/about" className="block text-sm text-gray-400 hover:text-white">About Us</Link>
+//                     <Link to="/blog" className="block text-sm text-gray-400 hover:text-white">Blog</Link>
+//                     <Link to="/contact" className="block text-sm text-gray-400 hover:text-white">Contact</Link>
+//                 </div>
+//                 <div className="space-y-2">
+//                     <h5 className="font-semibold mb-2">Legal</h5>
+//                     <Link to="/terms" className="block text-sm text-gray-400 hover:text-white">Terms of Service</Link>
+//                     <Link to="/privacy" className="block text-sm text-gray-400 hover:text-white">Privacy Policy</Link>
+//                 </div>
+//                 <div className="flex justify-end col-span-2 md:col-span-1 md:justify-start">
+//                     {/* Placeholder for social media icons */}
+//                     <div className="flex space-x-4">
+//                         <a href="#" className="text-gray-400 hover:text-white transition duration-150" aria-label="Facebook">FB</a>
+//                         <a href="#" className="text-gray-400 hover:text-white transition duration-150" aria-label="Twitter">TW</a>
+//                     </div>
+//                 </div>
+//             </div>
+//             <div className="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-400">
+//                 &copy; {new Date().getFullYear()} Youdemi, Inc. All rights reserved.
+//             </div>
+//         </div>
+//     </footer>
+// );
 
 // --- Main Index Page Component ---
 export default function IndexPage() {
