@@ -18,3 +18,15 @@ export const StarIcon = () => (
 export const BookOpenIcon = ({ color = 'currentColor' }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 19.5c0 .32 0 .52.1.72s.22.42.4.6.46.3.8.3H20c.34 0 .68-.1.8-.3s.3-.38.4-.6c.1-.2.1-.4.1-.72V5.5c0-.32 0-.52-.1-.72s-.22-.42-.4-.6-.46-.3-.8-.3H5c-.34 0-.68.1-.8.3s-.3.38-.4.6c-.1.2-.1.4-.1.72v14z"/><line x1="6" y1="12" x2="20" y2="12"/></svg>
 );
+
+export const GlobeIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+);
+
+export const UserIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+);
+
+export const ZapIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+);
