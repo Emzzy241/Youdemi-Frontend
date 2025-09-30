@@ -62,16 +62,16 @@ const Navbar = ({ onViewChange }) => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
                 
                 {/* Logo - Navigates to LANDING (Placeholder) */}
-                <button onClick={() => onViewChange('LANDING')} className="text-3xl font-extrabold tracking-tight" style={{ color: PRIMARY_BLUE }}>
+                <Link to="/" className="text-3xl font-extrabold tracking-tight" style={{ color: PRIMARY_BLUE }}>
                     Youdemi
-                </button>
+                </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden lg:flex items-center space-x-6">
                     <DropdownMenu title="Courses" items={COURSES_MENU} />
                     <DropdownMenu title="How Youdemi Works" items={HOW_IT_WORKS_MENU} />
                     <Link className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base" to="/blog">Blog</Link>
-                    <Link className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base" to="/blog">About</Link>
+                    <Link className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base" to="/about">About</Link>
                 </nav>
 
                 {/* Action Buttons & Search (Desktop) */}
@@ -83,13 +83,13 @@ const Navbar = ({ onViewChange }) => {
                         <SearchIcon />
                     </button>
                     <DummyLink 
-                        to="/signin"
+                        to="/auth/signIn"
                         className="py-2 px-4 text-base font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition duration-150 text-gray-800"
                     >
                         Sign In
                     </DummyLink>
                     <DummyLink 
-                        to="/signup"
+                        to="/auth/signUp"
                         className="py-2 px-4 text-base font-semibold rounded-lg text-white transition duration-150 shadow-md"
                         style={{ backgroundColor: PRIMARY_BLUE }}
                         onMouseEnter={(e) => e.currentTarget.style.backgroundColor = PRIMARY_HOVER_BLUE}
@@ -122,13 +122,13 @@ const Navbar = ({ onViewChange }) => {
                     </nav>
                     <div className="flex flex-col space-y-3 mt-5">
                         <DummyLink 
-                            to="/signin"
+                            to="/auth/signIn"
                             className="text-center py-2 px-4 font-semibold rounded-lg border border-gray-300 text-gray-800 hover:bg-gray-50"
                         >
                             Sign In
                         </DummyLink>
                         <DummyLink 
-                            to="/signup"
+                            to="/auth/signUp"
                             className="text-center py-2 px-4 font-semibold rounded-lg text-white"
                             style={{ backgroundColor: PRIMARY_BLUE }}
                         >

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Navbar from "./Navbar";
+import Footer from "./Footer"
 
 // --- Constants (Matching the Sign In/Dashboard theme) ---
 const PRIMARY_BLUE = 'rgb(0, 86, 210)';
@@ -108,12 +110,14 @@ export default function Blog() {
     return (
         <div className="min-h-screen font-sans antialiased bg-gray-50">
             {/* Nav Bar Placeholder (for context, normally would be external) */}
-            <header className="sticky top-0 z-20 bg-white border-b border-gray-100 shadow-md">
+            {/* <header className="sticky top-0 z-20 bg-white border-b border-gray-100 shadow-md">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
                     <div className="text-3xl font-extrabold tracking-tight" style={{ color: PRIMARY_BLUE }}>Youdemi Blog</div>
                     <div className="text-lg font-medium text-gray-600">Learning Hub</div>
                 </div>
-            </header>
+            </header> */}
+
+            <Navbar />
             
             <main>
                 {/* Blog Header / Hero Section (Clean Banner) */}
@@ -162,9 +166,11 @@ export default function Blog() {
             </main>
 
             {/* Footer Placeholder (for context, normally would be external) */}
-            <footer className="p-10 text-center bg-gray-800 text-white mt-12">
+            {/* <footer className="p-10 text-center bg-gray-800 text-white mt-12">
                 <p className="text-sm">&copy; 2024 Youdemi. All rights reserved.</p>
-            </footer>
+            </footer> */}
+
+            <Footer />
         </div>
     );
 }
