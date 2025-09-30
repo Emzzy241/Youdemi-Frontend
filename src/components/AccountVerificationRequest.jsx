@@ -189,7 +189,7 @@ const AccountVerificationRequest = ({ onSuccess, onReturnToLanding }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     // !!! IMPORTANT: REPLACE THIS WITH YOUR ACTUAL RENDER HOSTED ENDPOINT !!!
-    const VERIFICATION_API_ENDPOINT = 'https://your-hosted-backend.com/api/v1/users/sendVerificationCode'; 
+    const VERIFICATION_API_ENDPOINT = 'https://youdemi-fullstack.onrender.com/api/v1/send-verification-code'; 
 
     const handleSendCode = async (e) => {
         e.preventDefault();
