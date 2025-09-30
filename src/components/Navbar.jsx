@@ -70,8 +70,8 @@ const Navbar = ({ onViewChange }) => {
                 <nav className="hidden lg:flex items-center space-x-6">
                     <DropdownMenu title="Courses" items={COURSES_MENU} />
                     <DropdownMenu title="How Youdemi Works" items={HOW_IT_WORKS_MENU} />
-                    <Link className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base">Blog</Link>
-                    <Link className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base">About</Link>
+                    <Link className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base" to="/blog">Blog</Link>
+                    <Link className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg transition duration-150 text-base" to="/blog">About</Link>
                 </nav>
 
                 {/* Action Buttons & Search (Desktop) */}
