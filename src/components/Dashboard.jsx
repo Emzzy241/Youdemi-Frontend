@@ -168,7 +168,7 @@ export default function Dashboard() {
                 </div>
                 <div className="mt-3 md:mt-0 flex items-center space-x-4">
                     <a 
-                        href="/verified" // Placeholder for the verification link route
+                        href="/AccountVerificationRequest" // Placeholder for the verification link route
                         className="py-2 px-4 text-sm font-semibold rounded-lg text-white transition duration-200 shadow-md"
                         style={{ backgroundColor: PRIMARY_BLUE }}
                         onMouseEnter={(e) => e.currentTarget.style.backgroundColor = PRIMARY_HOVER_BLUE}

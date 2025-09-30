@@ -6,6 +6,7 @@ import SignIn from "./components/auth/SignIn"
 import SignUp from "./components/auth/SignUp";
 import Dashboard from './components/Dashboard';
 import "./App.css" 
+import { AccountVerificationRequest } from './components/AccountVerificationRequest';
 // import Contact from './components/Contact'; // Your Contact component
 
 // A simple component to protect routes
@@ -28,6 +29,8 @@ function App() {
 
           </ProtectedRoute>
         } />
+        <Route path="/AccountVerificationRequest" element={<AccountVerificationRequest />} />
+        
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     </BrowserRouter>
