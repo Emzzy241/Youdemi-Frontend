@@ -104,13 +104,13 @@ const NavBar = () => {
                         <SearchIcon />
                     </button>
                     <Link 
-                        to="/auth/signin"
+                        to="/auth/signIn"
                         className="py-2 px-4 text-base font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition duration-150 text-gray-800"
                     >
                         Sign In
                     </Link>
                     <Link 
-                        to="/auth/signup"
+                        to="/auth/signUp"
                         className="py-2 px-4 text-base font-semibold rounded-lg text-white transition duration-150 shadow-md"
                         style={{ backgroundColor: PRIMARY_BLUE }}
                         onMouseEnter={(e) => e.currentTarget.style.backgroundColor = PRIMARY_HOVER_BLUE}
@@ -142,13 +142,13 @@ const NavBar = () => {
                     </nav>
                     <div className="flex flex-col space-y-3 mt-5">
                         <Link 
-                            to="/signin"
+                            to="/auth/signIn"
                             className="text-center py-2 px-4 font-semibold rounded-lg border border-gray-300 text-gray-800 hover:bg-gray-50"
                         >
                             Sign In
                         </Link>
                         <Link 
-                            to="/signup"
+                            to="/auth/signUp"
                             className="text-center py-2 px-4 font-semibold rounded-lg text-white"
                             style={{ backgroundColor: PRIMARY_BLUE }}
                         >
@@ -434,19 +434,19 @@ export default function IndexPage() {
                         <p className="mt-3 text-lg text-gray-600">
                             Don't wait. Find the perfect course and register today!
                         </p>
-                        <div className="mt-6 space-x-4">
+                        <div className="mt-6 space-x-8">
                             <Link 
                                 to="/auth/signup"
                                 className="inline-block py-3 px-8 text-lg font-bold rounded-lg text-white shadow-xl transition duration-300 transform hover:scale-[1.05]"
                                 style={{ backgroundColor: PRIMARY_BLUE }}
                                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = PRIMARY_HOVER_BLUE}
                                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = PRIMARY_BLUE}
-                            >
+                            > 
                                 Get Started Free
                             </Link>
                             <Link 
                                 to="/courses"
-                                className="inline-block py-3 px-8 text-lg font-bold rounded-lg border-2 text-gray-800 transition duration-300 hover:bg-gray-50"
+                                className="inline-block py-3 px-8 text-lg font-bold rounded-lg border-2 text-gray-800 transition duration-300 hover:bg-gray-50 mt-8"
                                 style={{ borderColor: PRIMARY_BLUE }}
                             >
                                 Explore Courses
