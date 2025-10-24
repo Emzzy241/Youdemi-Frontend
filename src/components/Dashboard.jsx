@@ -45,9 +45,12 @@ const MOCK_STATS = [
 ];
 
 const MOCK_LATEST_COURSES = [
-    { id: 1, title: 'React & Tailwind Masterclass', instructor: 'Jane Doe', progress: 65, imageUrl: 'https://placehold.co/400x200/4F46E5/FFFFFF?text=React' },
-    { id: 2, title: 'Node.js Backend Development', instructor: 'John Smith', progress: 82, imageUrl: 'https://placehold.co/400x200/06B6D4/FFFFFF?text=Node.js' },
-    { id: 3, title: 'Advanced Data Structures (Python)', instructor: 'Alice Brown', progress: 12, imageUrl: 'https://placehold.co/400x200/F97316/FFFFFF?text=Python' },
+    { id: 1, title: 'React & Tailwind Masterclass', instructor: 'Jibola James (Coach JJ)', progress: 65, imageUrl: '/assets/images/react-tailwind-course.png' },
+    { id: 2, title: 'Node.js Backend Development', instructor: 'John Smith', progress: 82, imageUrl: '/assets/images/nodejs-course.png' },
+    { id: 3, title: 'Advanced Data Structures (Python)', instructor: 'Prof. R.O Oladele', progress: 12, imageUrl: '/assets/images/python-course.png' },
+    { id: 4, title: 'Introduction to Computer Science', instructor: 'Prof. R.G Jimoh', progress: 100, imageUrl: '/assets/images/intro-to-csc-course.jpg' },
+    { id: 5, title: 'Automata Theory', instructor: 'Dr. Adebakin', progress: 100, imageUrl: '/assets/images/automata-theory-course.png' },
+    { id: 6, title: 'Operating System', instructor: 'Dr. Hamza', progress: 100, imageUrl: '/assets/images/operating-system-course.png' },
 ];
 
 // --- Custom Components ---
