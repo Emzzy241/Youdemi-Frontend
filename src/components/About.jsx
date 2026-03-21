@@ -1,6 +1,6 @@
 import Navbar from "./Navbar"
 import Footer from "./Footer"
-import { PRIMARY_BLUE, PRIMARY_HOVER_BLUE, BG_LIGHT_BLUE } from "./Colors"
+import { PRIMARY_BLUE, BG_LIGHT_BLUE } from "./Colors"
 import { UserIcon, GlobeIcon, ZapIcon } from "./Icons";
 
 export default function About() {
