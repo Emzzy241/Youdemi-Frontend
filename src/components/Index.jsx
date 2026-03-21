@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from './Navbar';
 import Footer from './Footer';
-import {SearchIcon, MenuIcon, XIcon, ChevronDown, StarIcon, BookOpenIcon} from "./Icons"
+import {SearchIcon, StarIcon, BookOpenIcon} from "./Icons"
 import { PRIMARY_BLUE, PRIMARY_HOVER_BLUE, BG_LIGHT_BLUE } from "./Colors"
 // // Simulating lucide-react icons using inline SVG for single-file compatibility
 
