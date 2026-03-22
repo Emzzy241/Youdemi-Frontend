@@ -96,12 +96,19 @@ export default function About() {
                     <p className="mb-6 text-gray-300">
                         Join millions of learners transforming their lives and careers with Youdemi.
                     </p>
-                    <a href="#"
+                    {/* <a href="#"
                         className="inline-block py-3 px-8 text-lg font-semibold rounded-lg shadow-xl transition duration-300 transform hover:scale-105"
                         style={{ backgroundColor: PRIMARY_BLUE, color: 'white' }}
                     >
                         Explore Courses
-                    </a>
+                    </a> */}
+                    <button
+                        className="inline-block py-3 px-8 text-lg font-semibold rounded-lg shadow-xl transition duration-300 transform hover:scale-105"
+                        style={{ backgroundColor: PRIMARY_BLUE, color: 'white' }}
+                    >
+                        Explore Courses
+                    </button>
+
                 </section>
             </main>
             <Footer />

@@ -24,9 +24,12 @@ const Footer = () => {
                             <ul className="space-y-3">
                                 {section.links.map((link) => (
                                     <li key={link}>
-                                        <a href="#" className="text-gray-400 hover:text-white transition duration-150 text-sm">
+                                        {/* <a href="#" className="text-gray-400 hover:text-white transition duration-150 text-sm">
                                             {link}
-                                        </a>
+                                        </a> */}
+                                        <button className="text-gray-400 hover:text-white transition duration-150 text-sm">
+                                            {link}
+                                        </button>
                                     </li>
                                 ))}
                             </ul>
