@@ -4,11 +4,12 @@ import About from './components/About';
 import AccountVerificationRequest from './components/AccountVerificationRequest';
 import Blog from "./components/Blog";
 import Course from "./components/Course";
+import CourseCatalog from './components/Course/CourseCatalog';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import SignIn from "./components/auth/SignIn"
 import SignUp from "./components/auth/SignUp";
-import "./App.css" 
+import "./App.css"
 // import Contact from './components/Contact'; // Your Contact component
 
 // A simple component to protect routes
@@ -35,6 +36,11 @@ function App() {
         <Route path="/Blog" element={<Blog />}></Route>
         <Route path="/courses" element={<Course />}></Route>
 
+        {/* To "View All" courses */}
+        <Route path="/catalog" element={<CourseCatalog />} />
+
+        {/* This covers the filtered pages. ':categorySlug' is the variable name */}
+        <Route path="/catalog/:categorySlug" element={<CourseCatalog />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     </BrowserRouter>
