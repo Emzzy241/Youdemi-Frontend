@@ -66,7 +66,7 @@ const HeroSection = () => (
                     {/* Trust Badges/Stats */}
                     <div className="mt-10 flex flex-wrap gap-6 text-sm text-gray-600">
                         <span className="flex items-center font-bold bg-white/60 px-3 py-1 rounded-full shadow-sm">
-                            <StarIcon className="text-yellow-400 mr-1" /> 4.8 Instructor Rating
+                            4.8 <StarIcon className="text-yellow-400 mr-1" /> Instructor Rating
                         </span>
                         <span className="flex items-center font-medium bg-white/60 px-3 py-1 rounded-full shadow-sm">
                             <BookOpenIcon className="mr-2" color={PRIMARY_BLUE} />
