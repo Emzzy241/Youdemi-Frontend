@@ -10,12 +10,10 @@ import { PRIMARY_BLUE, PRIMARY_HOVER_BLUE, BG_LIGHT_BLUE } from "./Colors"
 const HeroSection = () => (
     <div 
         className="pt-16 pb-24 lg:pt-24 lg:pb-36 bg-cover bg-center" 
-        style={{ 
-            backgroundColor: BG_LIGHT_BLUE,
-        }}
+        style={{ backgroundColor: BG_LIGHT_BLUE }}
     >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center">
+            <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
                 
                 {/* Text and Search Column (Left) */}
                 <div className="lg:col-span-6 xl:col-span-7">
@@ -27,21 +25,20 @@ const HeroSection = () => (
                     </p>
                     
                     {/* Search Bar */}
-                    <form className="mt-8 flex shadow-xl rounded-xl overflow-hidden max-w-lg">
-                        <div className="relative flex-grow">
+                    <form className="mt-8 flex shadow-2xl rounded-2xl overflow-hidden max-w-lg border border-white/50">
+                        <div className="relative flex-grow bg-white">
                             <input
                                 type="search"
                                 placeholder="What do you want to learn today?"
-                                className="w-full py-4 pl-5 pr-12 text-lg border-none focus:ring-4 focus:ring-opacity-50"
-                                style={{ '--tw-ring-color': PRIMARY_BLUE, outline: 'none' }}
+                                className="w-full py-4 pl-5 pr-12 text-lg border-none focus:ring-0 outline-none"
                             />
-                            <button type="submit" className="absolute right-0 top-0 h-full w-12 text-gray-400 hover:text-gray-700 transition duration-150" aria-label="Search">
-                                <SearchIcon />
-                            </button>
+                            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
+                                <SearchIcon className="w-5 h-5" />
+                            </div>
                         </div>
                         <button
                             type="submit"
-                            className="flex items-center justify-center px-6 text-lg font-bold text-white transition duration-200"
+                            className="flex items-center justify-center px-8 text-lg font-bold text-white transition-all duration-200 active:scale-95"
                             style={{ backgroundColor: PRIMARY_BLUE }}
                             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = PRIMARY_HOVER_BLUE}
                             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = PRIMARY_BLUE}
@@ -50,26 +47,43 @@ const HeroSection = () => (
                         </button>
                     </form>
 
+                    {/* Secondary CTA: Courses Link */}
+                    <div className="mt-6 flex items-center gap-4">
+                        <Link 
+                            to="/catalog" 
+                            className="group flex items-center gap-2 text-lg font-semibold transition-all duration-200"
+                            style={{ color: PRIMARY_BLUE }}
+                        >
+                            <span>Explore All Courses</span>
+                            <span className="transform group-hover:translate-x-1 transition-transform duration-200">
+                                →
+                            </span>
+                        </Link>
+                        <span className="text-gray-300">|</span>
+                        <p className="text-sm text-gray-500">Popular: Python, Startup, Arts</p>
+                    </div>
+
                     {/* Trust Badges/Stats */}
-                    <div className="mt-6 flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-6 text-sm text-gray-600">
-                        <span className="flex items-center font-semibold">
-                            4.8 <StarIcon /> Instructor Rating
+                    <div className="mt-10 flex flex-wrap gap-6 text-sm text-gray-600">
+                        <span className="flex items-center font-bold bg-white/60 px-3 py-1 rounded-full shadow-sm">
+                            <StarIcon className="text-yellow-400 mr-1" /> 4.8 Instructor Rating
                         </span>
-                        <span className="hidden sm:inline-block">|</span>
-                        <span className="flex items-center">
-                            <BookOpenIcon color={PRIMARY_BLUE} />
-                            <span className="ml-2">15,000+ Courses</span>
+                        <span className="flex items-center font-medium bg-white/60 px-3 py-1 rounded-full shadow-sm">
+                            <BookOpenIcon className="mr-2" color={PRIMARY_BLUE} />
+                            15,000+ Courses
                         </span>
                     </div>
                 </div>
 
                 {/* Image Column (Right) */}
-                <div className="mt-10 lg:mt-0 lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end">
+                <div className="mt-12 lg:mt-0 lg:col-span-6 xl:col-span-5 relative">
+                    {/* Decorative background element */}
+                    <div className="absolute -top-4 -right-4 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                    
                     <img 
-                        className="w-full max-w-md lg:max-w-none rounded-2xl shadow-2xl object-cover"
+                        className="relative w-full max-w-md lg:max-w-none rounded-3xl shadow-2xl object-cover transform hover:rotate-1 transition-transform duration-500"
                         src="/assets/images/student-virtual-learn.jpg"
-                        alt="Illustration of a person learning on a laptop with charts and books"
-                        // onError={(e) => e.target.src = "https://placehold.co/600x400/0056D2/FFFFFF?text=Online+Education"}
+                        alt="Student learning online"
                     />
                 </div>
             </div>
@@ -292,7 +306,7 @@ export default function IndexPage() {
                                 Get Started Free
                             </Link>
                             <Link 
-                                to="/courses"
+                                to="/catalog"
                                 className="inline-block py-3 px-8 text-lg font-bold rounded-lg border-2 text-gray-800 transition duration-300 hover:bg-gray-50 mt-8"
                                 style={{ borderColor: PRIMARY_BLUE }}
                             >
