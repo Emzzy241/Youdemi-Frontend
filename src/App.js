@@ -34,7 +34,7 @@ function App() {
         } />
         <Route path="/AccountVerificationRequest" element={<AccountVerificationRequest />} />
         <Route path="/Blog" element={<Blog />}></Route>
-        <Route path="/courses" element={<Course />}></Route>
+        {/* <Route path="/courses" element={<CourseCatalog />}></Route> */}
 
         {/* To "View All" courses */}
         <Route path="/catalog" element={<CourseCatalog />} />
@@ -46,6 +46,7 @@ function App() {
     </BrowserRouter>
   );
 }
+//                             <BookOpenIcon color={PRIMARY_BLUE} />
 
 export default App;
 
