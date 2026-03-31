@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './components/Home';
 import About from './components/About';
+import AccountVerificationRequest from './components/AccountVerificationRequest';
+import Blog from "./components/Blog";
+import Course from "./components/Course";
+import Dashboard from './components/Dashboard';
+import Home from './components/Home';
 import SignIn from "./components/auth/SignIn"
 import SignUp from "./components/auth/SignUp";
-import Dashboard from './components/Dashboard';
-import Blog from "./components/Blog"
 import "./App.css" 
-import AccountVerificationRequest from './components/AccountVerificationRequest';
 // import Contact from './components/Contact'; // Your Contact component
 
 // A simple component to protect routes
@@ -32,6 +33,7 @@ function App() {
         } />
         <Route path="/AccountVerificationRequest" element={<AccountVerificationRequest />} />
         <Route path="/Blog" element={<Blog />}></Route>
+        <Route path="/courses" element={<Course />}></Route>
 
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
