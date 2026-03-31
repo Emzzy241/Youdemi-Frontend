@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from "./Navbar";
 import Footer from "./Footer"
 
@@ -9,7 +10,7 @@ const BG_LIGHT_BLUE = 'rgb(240, 248, 255)';
 
 // --- Icon Definitions (Simplified for single-file compatibility) ---
 const ClockIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
 );
 // A simple "Link" placeholder since actual routing isn't used in a standalone component
 const DummyLink = ({ children, to, className, style, onClick }) => (
@@ -24,21 +25,23 @@ const BLOG_POSTS = [
     { id: 4, title: "The Power of Financial Literacy: Why Everyone Needs It", category: "Finance & Business", date: "Sep 20, 2024", readTime: "6 min read", author: "Sarah M.", featured: false, image: "https://placehold.co/400x250/228B22/FFFFFF?text=Financial+Literacy", excerpt: "From budgeting to investing, financial knowledge is key to security and growth. Learn the basics to take control of your future." },
     { id: 5, title: "Designing for Accessibility: Tips for UX/UI Designers", category: "Design", date: "Sep 15, 2024", readTime: "8 min read", author: "Maya P.", featured: false, image: "https://placehold.co/400x250/FF4500/FFFFFF?text=UX+Design", excerpt: "Creating inclusive experiences is not just good practice, it's essential. Implement these five key accessibility tips today." },
     { id: 6, title: "Getting Started with Python: Your First Project", category: "Programming", date: "Sep 10, 2024", readTime: "4 min read", author: "David L.", featured: false, image: "https://placehold.co/400x250/FFD700/000000?text=Python+Project", excerpt: "Ready to code? This guide walks you through setting up your environment and building your first practical Python program." },
+    // { id: 1, title: "Getting Started with Python: Your First Project", category: "Programming", date: "Sep 10, 2024", readTime: "4 min read", author: "David L.", featured: false, image: "https://placehold.co/400x250/FFD700/000000?text=Python+Project", excerpt: "Ready to code? This guide walks you through setting up your environment and building your first practical Python program." },
+    // For them about 5 medium blogs I have written :)
 ];
 
 
 // --- Blog Post Card Component (Internal Helper) ---
 const BlogPostCard = ({ post }) => (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 transform hover:shadow-2xl hover:-translate-y-1 border border-gray-100">
-        <img 
-            className="w-full h-48 object-cover" 
-            src={post.image} 
-            alt={`Cover for ${post.title}`} 
+        <img
+            className="w-full h-48 object-cover"
+            src={post.image}
+            alt={`Cover for ${post.title}`}
             onError={(e) => e.target.src = "https://placehold.co/400x250/AAAAAA/FFFFFF?text=Article+Image"}
         />
         <div className="p-6">
-            <span 
-                className="text-xs font-bold uppercase tracking-widest rounded-full py-1 px-3 mb-2 inline-block text-white" 
+            <span
+                className="text-xs font-bold uppercase tracking-widest rounded-full py-1 px-3 mb-2 inline-block text-white"
                 style={{ backgroundColor: PRIMARY_BLUE }}
             >
                 {post.category}
@@ -63,9 +66,9 @@ const FeaturedPost = ({ post }) => (
     <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-10 border-t-8 border-gray-100" style={{ borderColor: PRIMARY_BLUE }}>
         <div className="lg:flex lg:space-x-10">
             <div className="lg:w-1/2 mb-6 lg:mb-0">
-                <img 
-                    className="w-full h-64 sm:h-96 object-cover rounded-xl shadow-lg" 
-                    src={post.image} 
+                <img
+                    className="w-full h-64 sm:h-96 object-cover rounded-xl shadow-lg"
+                    src={post.image}
                     alt={`Cover for ${post.title}`}
                     onError={(e) => e.target.src = "https://placehold.co/800x400/0056D2/FFFFFF?text=Featured+Article"}
                 />
@@ -88,7 +91,7 @@ const FeaturedPost = ({ post }) => (
                         <span>{post.readTime}</span>
                     </div>
                 </div>
-                <DummyLink 
+                <DummyLink
                     to="#"
                     className="mt-8 self-start py-3 px-8 text-lg font-bold rounded-xl text-white transition duration-200 shadow-lg transform hover:scale-[1.02]"
                     style={{ backgroundColor: PRIMARY_BLUE }}
@@ -118,7 +121,7 @@ export default function Blog() {
             </header> */}
 
             <Navbar />
-            
+
             <main>
                 {/* Blog Header / Hero Section (Clean Banner) */}
                 <div className="py-24 lg:py-32 text-center" style={{ backgroundColor: BG_LIGHT_BLUE }}>
@@ -130,15 +133,15 @@ export default function Blog() {
                             Insights, tutorials, and career advice from the forefront of digital education.
                         </p>
                         <div className="mt-8">
-                            <DummyLink className="text-lg font-medium transition duration-150 hover:underline" style={{ color: PRIMARY_BLUE }}>
+                            <Link to="/" className="text-lg font-medium transition duration-150 hover:underline" style={{ color: PRIMARY_BLUE }}>
                                 ← Return to Home Page
-                            </DummyLink>
+                            </Link>
                         </div>
                     </div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                    
+
                     {/* Featured Post Section */}
                     <h2 className="text-3xl font-extrabold text-gray-900 mb-8 pt-4">Featured Story</h2>
                     <div className="mb-20">
@@ -155,12 +158,15 @@ export default function Blog() {
 
                     {/* Pagination/Load More Placeholder */}
                     <div className="mt-16 text-center">
-                        <button 
-                            className="py-3 px-8 text-base font-semibold rounded-xl border-2 transition duration-300 hover:bg-gray-100"
-                            style={{ borderColor: PRIMARY_BLUE, color: PRIMARY_BLUE }}
-                        >
-                            Load More Articles
-                        </button>
+                        <Link to="https://medium.com/@Dynasty241/">
+                            <button
+                                className="py-3 px-8 text-base font-semibold rounded-xl border-2 transition duration-300 hover:bg-gray-100"
+                                style={{ borderColor: PRIMARY_BLUE, color: PRIMARY_BLUE }}
+                            >
+                                Load More Articles
+                            </button>
+
+                        </Link>
                     </div>
                 </div>
             </main>
