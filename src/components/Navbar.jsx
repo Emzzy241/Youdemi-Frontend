@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { PRIMARY_BLUE, PRIMARY_HOVER_BLUE } from './Colors';
 import { SearchIcon, MenuIcon, XIcon, ChevronDown } from './Icons';
-import { Link, Image } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // --- Navigation Sub-Menu Data (Mock) ---
 const COURSES_MENU = [
-    { name: 'Programming & Tech', href: '#' },
-    { name: 'Data Science', href: '#' },
-    { name: 'Finance & Business', href: '#' },
-    { name: 'Arts & Humanities', href: '#' },
+    { name: 'Programming & Tech', href: '/catalog/programming-tech' },
+    { name: 'Tech', href: '/catalog/tech' },
+    { name: 'Data Science', href: '/catalog/data-science' },
+    { name: 'Management', href: '/catalog/management-company' },
+    { name: 'Finance & Business', href: '/catalog/startup-company' },
+    { name: 'Startup & Company', href: '/catalog/startup-company' },
+    { name: 'Arts & Humanities', href: '/catalog/arts-humanities' },
 ];
 const HOW_IT_WORKS_MENU = [
     { name: 'Become a Student', href: '#' },
@@ -116,7 +119,7 @@ const Navbar = ({ onViewChange }) => {
                     <nav className="flex flex-col space-y-2 pt-4">
                         <button onClick={() => onViewChange('LANDING')} className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md text-left">Home</button>
                         {COURSES_MENU.map((item, index) => (
-                            <DummyLink key={index} to={item.href} className="block pl-4 py-2 text-gray-600 hover:bg-gray-50 rounded-md text-sm">{item.name}</DummyLink>
+                            <Link key={index} to={item.href} className="block pl-4 py-2 text-gray-600 hover:bg-gray-50 rounded-md text-sm">{item.name}</Link>
                         ))}
                         <button onClick={() => onViewChange('BLOG')} className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md text-left">Blog</button>
                         <button onClick={() => onViewChange('VERIFICATION_REQUEST')} className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md text-left">Verify Account (Demo)</button>
