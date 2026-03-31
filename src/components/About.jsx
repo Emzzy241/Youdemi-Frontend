@@ -73,15 +73,15 @@ export default function About() {
                             <ul className="space-y-4 text-gray-700">
                                 <li className="flex items-start">
                                     <span className="mr-3 p-1 rounded-full text-white flex-shrink-0" style={{ backgroundColor: PRIMARY_BLUE }}>✓</span>
-                                    **Accessibility:** Learning should be available anytime, anywhere.
+                                    <b>Accessibility: </b>&nbsp;  Learning should be available anytime, anywhere.
                                 </li>
                                 <li className="flex items-start">
                                     <span className="mr-3 p-1 rounded-full text-white flex-shrink-0" style={{ backgroundColor: PRIMARY_BLUE }}>✓</span>
-                                    **Quality:** Curated content taught by verified industry professionals.
+                                    <b>Quality: </b>&nbsp; Curated content taught by verified industry professionals.
                                 </li>
                                 <li className="flex items-start">
                                     <span className="mr-3 p-1 rounded-full text-white flex-shrink-0" style={{ backgroundColor: PRIMARY_BLUE }}>✓</span>
-                                    **Impact:** Focused on delivering tangible career and life outcomes.
+                                    <b>Impact: </b>&nbsp; Focused on delivering tangible career and life outcomes.
                                 </li>
                             </ul>
                         </div>
