@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import About from './components/About';
 import AccountVerificationRequest from './components/AccountVerificationRequest';
 import Blog from "./components/Blog";
-import Course from "./components/Course";
+// import Course from "./components/Course";
 import CourseCatalog from './components/Course/CourseCatalog';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
