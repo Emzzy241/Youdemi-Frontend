@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PRIMARY_BLUE, PRIMARY_HOVER_BLUE } from './Colors';
 import { SearchIcon, MenuIcon, XIcon, ChevronDown } from './Icons';
-import { Link } from 'react-router-dom';
+import { Link, Image } from 'react-router-dom';
 // --- Navigation Sub-Menu Data (Mock) ---
 const COURSES_MENU = [
     { name: 'Programming & Tech', href: '#' },
@@ -16,7 +16,7 @@ const HOW_IT_WORKS_MENU = [
 ];
 
 // --- Dropdown Menu Helper (Defined locally as it's a specific Navbar UI element) ---
-const DropdownMenu = ({ title, items, onViewChange }) => { 
+const DropdownMenu = ({ title, items, onViewChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <div className="relative">
@@ -29,7 +29,7 @@ const DropdownMenu = ({ title, items, onViewChange }) => {
                 <ChevronDown />
             </button>
             {isOpen && (
-                <div 
+                <div
                     className="absolute z-20 top-full mt-2 w-56 bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100"
                     onMouseLeave={() => setIsOpen(false)}
                 >
@@ -59,11 +59,12 @@ const Navbar = ({ onViewChange }) => {
 
     return (
         <header className="sticky top-0 z-20 bg-white border-b border-gray-100 shadow-md">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-                
+            <div className="max-w-7xl max-h-[5rem] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+
                 {/* Logo - Navigates to LANDING (Placeholder) */}
                 <Link to="/" className="text-3xl font-extrabold tracking-tight" style={{ color: PRIMARY_BLUE }}>
-                    Youdemi
+                    {/* Youdemi */}
+                    <img className="w-[7rem] h-[7rem]" src="/youdemi-logo.png" alt="Youdemi Logo" />
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -76,19 +77,19 @@ const Navbar = ({ onViewChange }) => {
 
                 {/* Action Buttons & Search (Desktop) */}
                 <div className="hidden lg:flex items-center space-x-4">
-                    <button 
-                        className="p-2 rounded-full text-gray-700 hover:bg-gray-100 transition duration-150" 
+                    <button
+                        className="p-2 rounded-full text-gray-700 hover:bg-gray-100 transition duration-150"
                         aria-label="Search"
                     >
                         <SearchIcon />
                     </button>
-                    <DummyLink 
+                    <DummyLink
                         to="/auth/signIn"
                         className="py-2 px-4 text-base font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition duration-150 text-gray-800"
                     >
                         Sign In
                     </DummyLink>
-                    <DummyLink 
+                    <DummyLink
                         to="/auth/signUp"
                         className="py-2 px-4 text-base font-semibold rounded-lg text-white transition duration-150 shadow-md"
                         style={{ backgroundColor: PRIMARY_BLUE }}
@@ -121,13 +122,13 @@ const Navbar = ({ onViewChange }) => {
                         <button onClick={() => onViewChange('VERIFICATION_REQUEST')} className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md text-left">Verify Account (Demo)</button>
                     </nav>
                     <div className="flex flex-col space-y-3 mt-5">
-                        <DummyLink 
+                        <DummyLink
                             to="/auth/signIn"
                             className="text-center py-2 px-4 font-semibold rounded-lg border border-gray-300 text-gray-800 hover:bg-gray-50"
                         >
                             Sign In
                         </DummyLink>
-                        <DummyLink 
+                        <DummyLink
                             to="/auth/signUp"
                             className="text-center py-2 px-4 font-semibold rounded-lg text-white"
                             style={{ backgroundColor: PRIMARY_BLUE }}
