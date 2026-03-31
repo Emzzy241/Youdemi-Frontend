@@ -54,7 +54,7 @@ const Footer = () => {
                         Youdemi
                     </div>
                     <div>
-                        © 2024 Youdemi, Inc.
+                        © 2026 Youdemi, Inc.
                     </div>
                 </div>
             </div>
