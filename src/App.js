@@ -7,11 +7,13 @@ import Career from './components/Career';
 // import Course from "./components/Course";
 import CourseCatalog from './components/Course/CourseCatalog';
 import Dashboard from './components/Dashboard';
+import GetTheApp from './components/GetTheApp';
 import Home from './components/Home';
 import HelpSupport from './components/HelpSupport';
 import Terms from './components/Terms';
 import SignIn from "./components/auth/SignIn"
 import SignUp from "./components/auth/SignUp";
+import Sitemap from './components/Sitemap';
 import "./App.css"
 // import Contact from './components/Contact'; // Your Contact component
 
@@ -48,6 +50,8 @@ function App() {
         <Route path="/career" element={<Career />}></Route>
         <Route path="/help-support" element={<HelpSupport />}></Route>
         <Route path="/terms" element={<Terms />}></Route>
+        <Route path="/sitemap" element={<Sitemap />}></Route>
+        <Route path="/get-the-app" element={<GetTheApp />}></Route>
       </Routes>
     </BrowserRouter>
   );
