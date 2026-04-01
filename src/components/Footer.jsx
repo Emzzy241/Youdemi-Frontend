@@ -1,10 +1,8 @@
 import React from 'react';
 
-// --- Colors: Defined internally to resolve the 'Could not resolve "./Colors"' error ---
 const PRIMARY_BLUE = 'rgb(0, 86, 210)';
 
 const Footer = () => {
-    // Placeholder data for the footer
     const footerLinks = [
         { title: 'Company', links: ['About', 'Careers', 'Blog', 'Affiliate'] },
         { title: 'Support', links: ['Help & Support', 'Trust & Safety', 'Get the app'] },
