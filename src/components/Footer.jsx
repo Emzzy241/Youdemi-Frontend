@@ -1,62 +1,92 @@
 import React from 'react';
-
+import { Link } from "react-router-dom"
 const PRIMARY_BLUE = 'rgb(0, 86, 210)';
 
+const footerLinks = [
+    {
+        title: 'Company',
+        links: [
+            { label: 'About', path: '/about' },
+            { label: 'Careers', path: '/career-page' },
+            { label: 'Blog', path: '/blog' },
+            { label: 'Affiliate', path: '/affiliate' }
+        ]
+    },
+    {
+        title: 'Support',
+        links: [
+            { label: 'Help & Support', path: '/help-support' },
+            { label: 'Trust & Safety', path: '/safety' },
+            { label: 'Get the app', path: '/get-the-app' }
+        ]
+    },
+    {
+        title: 'Legal',
+        links: [
+            { label: 'Terms', path: '/terms' },
+            { label: 'Privacy policy', path: '/privacy' },
+            { label: 'Cookie settings', path: '/cookies' }
+        ]
+    },
+    {
+        title: 'Courses',
+        links: [
+            { label: 'Software Development', path: '/courses?category=dev' },
+            { label: 'Finance', path: '/courses?category=finance' },
+            { label: 'Accounting', path: '/courses?category=accounting' },
+            { label: 'Ecommerce', path: '/courses?category=ecommerce' }
+        ]
+    },
+];
+
 const Footer = () => {
-    const footerLinks = [
-        { title: 'Company', links: ['About', 'Careers', 'Blog', 'Affiliate'] },
-        { title: 'Support', links: ['Help & Support', 'Trust & Safety', 'Get the app'] },
-        { title: 'Legal', links: ['Terms', 'Privacy policy', 'Cookie settings', 'Sitemap'] },
-        { title: 'Community', links: ['Instructors', 'Students', 'Partners'] },
-        { title: 'Courses', links: ['Finance', 'Software Development', 'Accounting', 'Ecommerce'] },
-    ];
 
     return (
-        <footer className="bg-gray-900 text-white pt-12 pb-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 border-b border-gray-700 pb-10">
-                    {/* Link Sections */}
-                    {footerLinks.map((section) => (
-                        <div key={section.title}>
-                            <h3 className="text-lg font-bold mb-4">{section.title}</h3>
-                            <ul className="space-y-3">
-                                {section.links.map((link) => (
-                                    <li key={link}>
-                                        {/* <a href="#" className="text-gray-400 hover:text-white transition duration-150 text-sm">
-                                            {link}
-                                        </a> */}
-                                        <button className="text-gray-400 hover:text-white transition duration-150 text-sm">
-                                            {link}
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
+        <React.Fragment>
+            <footer className="bg-gray-950 text-white pt-16 pb-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Main Link Grid */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-12 gap-x-8 border-b border-gray-800 pb-12">
+                        {footerLinks.map((section) => (
+                            <div key={section.title}>
+                                <h3 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
+                                    {section.title}
+                                </h3>
+                                <ul className="space-y-4">
+                                    {section.links.map((link) => (
+                                        <li key={link.label}>
+                                            <Link
+                                                to={link.path}
+                                                className="text-gray-300 hover:text-white transition-colors duration-200 text-base"
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Bottom Bar: Logo and Copyright */}
+                    <div className="mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div className="flex items-center gap-8">
+                            <Link to="/" className="text-2xl font-black tracking-tighter" style={{ color: PRIMARY_BLUE }}>
+                                Youdemi
+                            </Link>
+                            <nav className="hidden md:flex gap-6 text-sm text-gray-500">
+                                <Link to="/sitemap" className="hover:text-gray-300">Sitemap</Link>
+                                <Link to="/cookies" className="hover:text-gray-300">Cookies</Link>
+                            </nav>
                         </div>
-                    ))}
 
-                    {/* Language Selector (Placeholder for an extra column on large screens) */}
-                    {/* <div className="col-span-2 md:col-span-4 lg:col-span-1 flex justify-start lg:justify-end">
-                        <button 
-                            className="flex items-center space-x-2 px-4 py-2 border rounded-lg text-sm font-medium transition duration-150 hover:bg-gray-800"
-                            style={{ borderColor: PRIMARY_BLUE, color: PRIMARY_BLUE }}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            <span>English</span>
-                        </button>
-                    </div> */}
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="mt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                    <div className="text-2xl font-extrabold mb-4 md:mb-0" style={{ color: PRIMARY_BLUE }}>
-                        Youdemi
-                    </div>
-                    <div>
-                        © 2026 Youdemi, Inc.
+                        <div className="text-sm text-gray-500 font-medium">
+                            © 2026 Youdemi, Inc. <span className="mx-2">|</span> Made for the future of education.
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </React.Fragment>
     );
 };
 
