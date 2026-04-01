@@ -132,4 +132,28 @@ export const MOCK_COURSES = [
         tags: ['finance', 'business'], // Matches the 'management' tag in our constants
         image: "https://images.unsplash.com/photo-1507679722338-958ad225e736?w=400"
     },
+    {
+        id: 12,
+        title: "Finance & Business",
+        instructor: "MIT School",
+        rating: 4.6,
+        reviewsCount: 3200,
+        price: 24.99,
+        oldPrice: 120.00,
+        isBestseller: false,
+        tags: ['finance', 'business'], // Matches the 'management' tag in our constants
+        image: "https://images.unsplash.com/photo-1507679722338-958ad225e736?w=400"
+    },
+    {
+        id: 13,
+        title: "Finance & Business",
+        instructor: "Yale Business School",
+        rating: 4.6,
+        reviewsCount: 3200,
+        price: 24.99,
+        oldPrice: 120.00,
+        isBestseller: false,
+        tags: ['finance', 'business'], // Matches the 'management' tag in our constants
+        image: "https://images.unsplash.com/photo-1507679722338-958ad225e736?w=400"
+    },
 ];
