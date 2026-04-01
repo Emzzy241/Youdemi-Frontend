@@ -3,10 +3,13 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import About from './components/About';
 import AccountVerificationRequest from './components/AccountVerificationRequest';
 import Blog from "./components/Blog";
+import Career from './components/Career';
 // import Course from "./components/Course";
 import CourseCatalog from './components/Course/CourseCatalog';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
+import HelpSupport from './components/HelpSupport';
+import Terms from './components/Terms';
 import SignIn from "./components/auth/SignIn"
 import SignUp from "./components/auth/SignUp";
 import "./App.css"
@@ -41,6 +44,10 @@ function App() {
         {/* This covers the filtered pages. ':categorySlug' is the variable name */}
         <Route path="/catalog/:categorySlug" element={<CourseCatalog />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
+      
+        <Route path="/career" element={<Career />}></Route>
+        <Route path="/help-support" element={<HelpSupport />}></Route>
+        <Route path="/terms" element={<Terms />}></Route>
       </Routes>
     </BrowserRouter>
   );
