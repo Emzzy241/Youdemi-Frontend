@@ -5,6 +5,7 @@ import { COURSE_CATEGORIES } from './../../utils/constants';
 import CourseCard from './CourseCard';
 import { MOCK_COURSES } from './CourseData';
 import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 // const CourseCatalog = ({ allCourses }) => {
 //   const { categorySlug } = useParams();
@@ -147,6 +148,8 @@ const CourseCatalog = () => {
                     </div>
                 )}
             </div>
+
+            <Footer />
 
         </React.Fragment>
 

@@ -16,7 +16,7 @@ const footerLinks = [
         title: 'Support',
         links: [
             { label: 'Help & Support', path: '/help-support' },
-            { label: 'Trust & Safety', path: '/safety' },
+            { label: 'Trust & Safety', path: '/trust-safety' },
             { label: 'Get the app', path: '/get-the-app' }
         ]
     },
@@ -24,17 +24,23 @@ const footerLinks = [
         title: 'Legal',
         links: [
             { label: 'Terms', path: '/terms' },
-            { label: 'Privacy policy', path: '/privacy' },
-            { label: 'Cookie settings', path: '/cookies' }
+            { label: 'Privacy policy', path: '/privacy-policy' },
+            { label: 'Cookie settings', path: '/cookies-settings' }
         ]
     },
     {
         title: 'Courses',
         links: [
-            { label: 'Software Development', path: '/courses?category=dev' },
-            { label: 'Finance', path: '/courses?category=finance' },
-            { label: 'Accounting', path: '/courses?category=accounting' },
-            { label: 'Ecommerce', path: '/courses?category=ecommerce' }
+            { label: 'Software Development', path: '/catalog/tech' },
+            { label: 'Data Science', path: '/catalog/data-science' },
+            { label: 'Management', path: '/catalog/management' },
+            { label: 'Startup & Company', path: '/catalog/startup-company' },
+            { label: 'Arts & Humanities', path: '/catalog/arts-humanities' }
+
+
+            // { label: 'Finance', path: '/catalog/' },
+            // { label: 'Accounting', path: '/catalog' },
+            // { label: 'Ecommerce', path: '/catalog' }
         ]
     },
 ];

@@ -15,6 +15,10 @@ import SignIn from "./components/auth/SignIn"
 import SignUp from "./components/auth/SignUp";
 import Sitemap from './components/Sitemap';
 import "./App.css"
+import TrustSafety from './components/TrustSafety';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import CookieSettings from './components/CookieSettings';
+import Affiliate from './components/Affiliate';
 // import Contact from './components/Contact'; // Your Contact component
 
 // A simple component to protect routes
@@ -52,6 +56,10 @@ function App() {
         <Route path="/terms" element={<Terms />}></Route>
         <Route path="/sitemap" element={<Sitemap />}></Route>
         <Route path="/get-the-app" element={<GetTheApp />}></Route>
+        <Route path="/trust-safety" element={<TrustSafety />}></Route>
+        <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
+        <Route path="/cookies-settings" element={<CookieSettings />}></Route>
+        <Route path="/affiliate" element={<Affiliate />}></Route>
       </Routes>
     </BrowserRouter>
   );
