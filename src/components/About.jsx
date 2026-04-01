@@ -1,5 +1,6 @@
 import Navbar from "./Navbar"
 import Footer from "./Footer"
+import { Link } from "react-router-dom"
 import { PRIMARY_BLUE, BG_LIGHT_BLUE } from "./Colors"
 import { UserIcon, GlobeIcon, ZapIcon } from "./Icons";
 
@@ -102,12 +103,20 @@ export default function About() {
                     >
                         Explore Courses
                     </a> */}
-                    <button
+                    {/* <button
                         className="inline-block py-3 px-8 text-lg font-semibold rounded-lg shadow-xl transition duration-300 transform hover:scale-105"
                         style={{ backgroundColor: PRIMARY_BLUE, color: 'white' }}
                     >
                         Explore Courses
-                    </button>
+                    </button> */}
+
+                    <Link
+                        to="/catalog"
+                        className="inline-block py-3 px-8 text-lg font-semibold rounded-lg shadow-xl transition duration-300 transform hover:scale-105"
+                        style={{ backgroundColor: PRIMARY_BLUE, color: 'white' }}
+                    >
+                        Explore Courses
+                    </Link>
 
                 </section>
             </main>
