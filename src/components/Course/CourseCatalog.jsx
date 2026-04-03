@@ -28,15 +28,17 @@ const CourseCatalog = () => {
 
                 const data = await response.json();
                 console.log("API DATA:", data);
-
                 setCourses(data.data);
-                console.log("courses state is: " + courses);
             } catch (error) {
                 console.error("Error fetching courses:", error);
             }
         };
-
+        
         fetchCourses();
+    }, []);
+    
+    useEffect(() => {
+        console.log("courses state is now: ", courses);
     }, [courses]);
 
     useEffect(() => {
