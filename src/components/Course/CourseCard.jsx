@@ -2,40 +2,84 @@ import { Star } from 'lucide-react';
 
 const CourseCard = ({ course }) => {
   return (
-    <div className="group cursor-pointer flex flex-col h-full bg-white border border-slate-200 hover:shadow-md transition-all duration-200">
-      <div className="relative aspect-video w-full bg-slate-100 overflow-hidden">
-        <img 
-          src={course.image || 'https://via.placeholder.com/300x180'} 
+    <div className="group cursor-pointer flex flex-col h-full bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
+
+      {/* IMAGE */}
+      <div className="relative aspect-video w-full overflow-hidden">
+        <img
+          src={course.image || "https://images.unsplash.com/photo-1516321318423-f06f85e504b3"}
           alt={course.title}
-          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+          className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
         />
-        {course.isBestseller && (
-          <span className="absolute top-2 left-2 bg-[#eceb98] text-[#3d3c0a] text-[10px] font-bold px-2 py-1 shadow-sm">
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
+        {/* Bestseller badge */}
+        {course.isBestSeller && (
+          <span className="absolute top-3 left-3 bg-yellow-300 text-yellow-900 text-xs font-semibold px-2 py-1 rounded-md shadow">
             Bestseller
           </span>
         )}
+
+        {/* Optional category */}
+        {course.category && (
+          <span className="absolute bottom-3 left-3 bg-white/90 text-xs font-medium px-2 py-1 rounded">
+            {course.category}
+          </span>
+        )}
       </div>
-      
-      <div className="p-3 flex flex-col flex-grow">
-        <h3 className="font-bold text-[15px] leading-tight text-slate-900 line-clamp-2 mb-1 group-hover:text-[rgb(0,86,210)]">
+
+      {/* CONTENT */}
+      <div className="p-4 flex flex-col flex-grow space-y-2">
+
+        {/* Title */}
+        <h3 className="font-semibold text-base text-slate-900 leading-snug line-clamp-2 group-hover:text-blue-600 transition">
           {course.title}
         </h3>
-        <p className="text-xs text-slate-500 mb-1">{course.instructor}</p>
-        
-        <div className="flex items-center gap-1 mb-1">
-          <span className="text-[13px] font-bold text-[#b4690e]">{course.rating}</span>
-          <div className="flex text-yellow-500">
+
+        {/* Instructor */}
+        <p className="text-xs text-slate-500">
+          {course.instructor}
+        </p>
+
+        {/* Description */}
+        <p className="text-sm text-slate-600 line-clamp-2">
+          {course.description || "No description available for this course."}
+        </p>
+
+        {/* Rating */}
+        <div className="flex items-center gap-1 text-sm">
+          <span className="font-semibold text-amber-600">
+            {course.rating}
+          </span>
+
+          <div className="flex text-amber-400">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={12} fill={i < Math.floor(course.rating) ? "currentColor" : "none"} />
+              <Star
+                key={i}
+                size={14}
+                fill={i < Math.floor(course.rating) ? "currentColor" : "none"}
+                strokeWidth={1.5}
+              />
             ))}
           </div>
-          <span className="text-[11px] text-slate-400">({course.reviewsCount.toLocaleString()})</span>
+
+          <span className="text-xs text-slate-400">
+            ({course.reviewsCount})
+          </span>
         </div>
-        
-        <div className="mt-auto pt-2 flex items-center gap-2">
-          <span className="font-bold text-lg">${course.price}</span>
-          {course.oldPrice && (
-            <span className="text-sm text-slate-400 line-through">${course.oldPrice}</span>
+
+        {/* PRICE */}
+        <div className="mt-auto flex items-center gap-2 pt-3">
+          <span className="font-bold text-xl text-slate-900">
+            ${course?.newPrice?.$numberDecimal}
+          </span>
+
+          {course?.oldPrice?.$numberDecimal && (
+            <span className="text-sm text-slate-400 line-through">
+              ${course.oldPrice.$numberDecimal}
+            </span>
           )}
         </div>
       </div>

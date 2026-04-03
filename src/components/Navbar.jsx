@@ -8,7 +8,7 @@ const COURSES_MENU = [
     { name: 'Tech', href: '/catalog/tech' },
     { name: 'Data Science', href: '/catalog/data-science' },
     { name: 'Management', href: '/catalog/management-company' },
-    { name: 'Finance & Business', href: '/catalog/startup-company' },
+    { name: 'Finance & Business', href: '/catalog/finance-business' },
     { name: 'Startup & Company', href: '/catalog/startup-company' },
     { name: 'Arts & Humanities', href: '/catalog/arts-humanities' },
 ];

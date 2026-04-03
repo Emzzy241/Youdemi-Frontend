@@ -1,4 +1,3 @@
-// src/data/courseData.js
 export const MOCK_COURSES = [
     {
         id: 1,
@@ -157,3 +156,10 @@ export const MOCK_COURSES = [
         image: "https://images.unsplash.com/photo-1507679722338-958ad225e736?w=400"
     },
 ];
+
+// export const CATALOG_COURSES = () => {
+//     const [courses, setCourses] = useState([]);
+//       const [filteredCourses, setFilteredCourses] = useState([]);
+      
+
+// }

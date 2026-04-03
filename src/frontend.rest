@@ -21,3 +21,6 @@ Content-Type: application/json
     "email": "dynaman@gmail.com",
     "password": "Dynaman2#"
 }
+
+### Fetch Courses Remotely
+GET https://youdemi-fullstack.onrender.com/api/v1/courses/catalog

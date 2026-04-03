@@ -1,9 +1,9 @@
 import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import { PRIMARY_BLUE } from "./Colors"; // Do this for all files and refactor code
 
-
-const PRIMARY_BLUE = 'rgb(0, 86, 210)';
+// const PRIMARY_BLUE = 'rgb(0, 86, 210)';
 
 const HelpSupport = () => {
     const categories = [

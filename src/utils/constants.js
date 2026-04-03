@@ -8,6 +8,7 @@ export const COURSE_CATEGORIES = {
   'management-company': { label: 'Management', dbTags: ['management', 'leadership'] },
   'management': { label: 'Management', dbTags: ['management', 'leadership'] },
   'startup-company': { label: 'Startup & Business', dbTags: ['startup', 'business', 'finance'] },
+  'finance-business': { label: 'Finance & Business', dbTags: ['finance', 'business', 'money'] },
   'startup': { label: 'Startup & Business', dbTags: ['startup', 'business', 'finance'] },
   'arts-humanities': { label: 'Arts & Humanities', dbTags: ['arts', 'humanities'] }
 };
