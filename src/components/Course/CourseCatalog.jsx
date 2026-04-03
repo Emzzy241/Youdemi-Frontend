@@ -37,7 +37,7 @@ const CourseCatalog = () => {
         };
 
         fetchCourses();
-    }, []);
+    }, [courses]);
 
     useEffect(() => {
         if (!categorySlug) {
