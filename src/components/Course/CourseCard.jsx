@@ -7,7 +7,7 @@ const CourseCard = ({ course }) => {
       {/* IMAGE */}
       <div className="relative aspect-video w-full overflow-hidden">
         <img
-          src={course.image || "https://images.unsplash.com/photo-1516321318423-f06f85e504b3"}
+          src={course.imageUrl || "https://images.unsplash.com/photo-1516321318423-f06f85e504b3"}
           alt={course.title}
           className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
         />
