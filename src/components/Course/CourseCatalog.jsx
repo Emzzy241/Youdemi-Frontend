@@ -7,7 +7,7 @@ import Footer from '../Footer';
 import CourseCTA from './CourseCTA';
 
 
-const COURSE_CATALOG_URL = "https://youdemi-fullstack.onrender.com/api/v1/courses/catalog";
+const COURSE_CATALOG_URL = "https://youdemi-fullstack.onrender.com/api/v1/catalog";
 
 const CourseCatalog = () => {
 
