@@ -117,7 +117,8 @@ const Navbar = ({ onViewChange }) => {
             {isMobileMenuOpen && (
                 <div className="lg:hidden bg-white px-4 pb-4 border-t border-gray-100 shadow-inner">
                     <nav className="flex flex-col space-y-2 pt-4">
-                        <button onClick={() => onViewChange('LANDING')} className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md text-left">Home</button>
+                        {/* <button onClick={() => onViewChange('LANDING')} className="block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md text-left">Home</button> */}
+                        <Link to="/" className='block py-2 text-gray-700 font-semibold hover:bg-gray-50 rounded-md text-left'>Home</Link>
                         {COURSES_MENU.map((item, index) => (
                             <Link key={index} to={item.href} className="block pl-4 py-2 text-gray-600 hover:bg-gray-50 rounded-md text-sm">{item.name}</Link>
                         ))}
